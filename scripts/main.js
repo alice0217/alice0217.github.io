@@ -1,35 +1,38 @@
-const myImage = document.querySelector("img");
+const myImage = document.getElementById("second-img");
 
 myImage.onclick = () => {
     const mySrc = myImage.getAttribute("src");
-    if (mySrc === "./images/me.jpg") {
-        myImage.setAttribute("src", "./images/snoopy.jpg");
+    if (mySrc === "./images/snoopy1.jpg") {
+        myImage.setAttribute("src", "./images/snoopy2.jpg");
     } else {
-        myImage.setAttribute("src", "./images/me.jpg");
+        myImage.setAttribute("src", "./images/snoopy1.jpg");
     }
 };
 
 let myButton = document.querySelector("button");
-let myHeading = document.querySelector("h1");
+let myList = document.querySelector("ul");
 
-function setUserName() {
-    const myName = prompt("Please enter your name.");
-    if (!myName) {
-        setUserName();
+function addListItem() {
+    const myItem = prompt("Please enter your item.");
+    if (!myItem) {
+        addListItem();
     } else {
-        localStorage.setItem("name", myName);
-        myHeading.textContent = `${myName}`;
+        const listItem = document.createElement("li");
+        listItem.textContent = `${myItem}`;
+        myList.appendChild(listItem);
+        localStorage.setItem("listItems", myList.innerHTML);
     }
 }
 
-
-if (!localStorage.getItem("name")) {
-    setUserName();
-} else {
-    const storedName = localStorage.getItem("name");
-    myHeading.textContent = `${storedName}`;
+function renderListItems() {
+    const listItems = localStorage.getItem("listItems");
+    if (listItems) {
+        myList.innerHTML = listItems;
+    }
 }
 
+renderListItems();
+
 myButton.onclick = () => {
-    setUserName();
+    addListItem();
 };

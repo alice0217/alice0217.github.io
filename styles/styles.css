@@ -1,13 +1,13 @@
 html {
     font-size: 10px;
     font-family: 'Montserrat', sans-serif;
-    background-color: #00539f;
+    background-color: #2C5F2D;
 }
 
 body {
     width: 600px;
     margin: 0 auto;
-    background-color: #ff9500;
+    background-color: #97BC62FF;
     padding: 0 20px 20px 20px;
     border: 5px solid black;
 }
@@ -17,8 +17,23 @@ h1 {
     text-align: center;
     margin: 0;
     padding: 20px 0;
-    color: #00539f;
+    color: #2C5F2D;
     text-shadow: 3px 3px 1px black;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 0;
+    color: #2C5F2D;
+    font-weight: bold;
+    padding: 0 0 20px 0;
+}
+
+h4 {
+    font-size: 18px;
+    text-align: center;
+    color: #2C5F2D;
+    font-weight: bold;
 }
 
 p,
